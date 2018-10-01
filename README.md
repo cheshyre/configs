@@ -25,5 +25,5 @@ I plan on writing a script to sync this repository with the configs on a specifi
 
 # Feedback
 
-If you are using this and you find incomplete/unclear instructions, dead links, no configs where there realistically could be configs, or anything else, [open an issue](issues).
+If you are using this and you find incomplete/unclear instructions, dead links, no configs where there realistically could be configs, or anything else, [open an issue](/issues).
 
