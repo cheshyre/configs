@@ -1,0 +1,156 @@
+
+[bar/top]
+
+;------------;
+; DIMENSIONS ;
+;------------;
+
+width = 100%
+height = 24
+offset-y = 0
+offset-x = 0
+
+border-top-size = 0
+border-bottom-size = 0
+border-right-size = 0
+border-left-size = 0
+
+;----------;
+; LOCATION ;
+;----------;
+
+bottom = false
+monitor = eDP-1
+wm-restack = none
+override-redirect = false
+
+;-------;
+; FONTS ;
+;-------;
+
+font-0 = Noto Sans:size=12;3
+font-1 = Font Awesome 5 Free Solid:size=12;3
+font-2 = Font Awesome 5 Brands:size=12;3
+
+;--------;
+; COLORS ;
+;--------;
+
+background = #1c1c1c
+foreground = #c5c8c6
+border-color = 0
+
+;---------------;
+; MISCELLANEOUS ;
+;---------------;
+
+fixed-center = true
+padding-left = 2
+padding-right = 2
+module-margin = 1.5
+
+modules-left = volume battery cpu
+modules-center = i3
+modules-right = wlan date time
+
+tray-position = none
+tray-detached = true
+
+;---------;
+; MODULES ;
+;---------;
+
+[module/i3]
+type = internal/i3
+
+pin-workspaces = true
+strip-wsnumbers = true
+enable-scroll = false
+
+label-unfocused-foreground = #707880
+label-focused-foreground = #c5c8c6
+label-urgent-foreground = #ff0000
+
+[module/time]
+type = internal/date
+
+interval = 1.0
+
+date =  %H:%M
+
+[module/date]
+type = internal/date
+date =  %A, %d %B, %Y
+label = %date%
+
+
+[module/battery]
+type = internal/battery
+
+battery = BAT0
+
+poll-interval = 1
+
+full-at = 95
+
+label-discharging = %percentage%%
+label-charging = %percentage%%
+label-full = %percentage%%
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-full = <ramp-capacity> <label-full>
+format-charging =  <label-charging>
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+[module/volume]
+type = internal/alsa
+
+format-volume = <ramp-volume> <label-volume>
+format-muted =  0%
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+;[module/backlight]
+;type = internal/xbacklight
+
+;label =  %percentage%%
+
+[module/wlan]
+type = internal/network
+
+interface = wlp2s0
+
+interval = 5
+
+label-connected =  %essid%
+label-disconnected =  Not Connected
+
+[module/cpu]
+type = internal/cpu
+label =  %percentage%%
+
+
+[module/memory]
+type = internal/memory
+label =  %gb_used%
+
+[module/network]
+type = internal/network
+interface = wlp2s0
+label-connected =  %downspeed% |  %upspeed%
+
+[bar/float]
+
+inherit = bar/top
+
+background = #ffffff
+
+tray-position = center
+
