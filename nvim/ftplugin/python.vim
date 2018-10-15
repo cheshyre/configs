@@ -9,7 +9,10 @@ set autoindent
 " This isnt working currently for some reason
 " match BadWhitespace /\s\+$/
 
-let python_highlight_all=1
+" Enable aggressive python highlighting
+let g:python_highlight_all=1
+
+" Turn on syntax highlighting
 syntax on
 
 " Show docstrings in Python folds
