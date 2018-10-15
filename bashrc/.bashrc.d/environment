@@ -1,0 +1,13 @@
+# Rust path
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Go path
+export GOPATH=$HOME/go
+export PATH=$PATH:/usr/local/go/bin:$GOPATH/bin
+
+# Java path
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+
+# npm path
+export PATH=~/.npm-global/bin:$PATH
+
