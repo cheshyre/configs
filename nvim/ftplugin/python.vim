@@ -5,15 +5,11 @@ set textwidth=79
 set expandtab
 set autoindent
 
-" Highlight bad white space
-" This isnt working currently for some reason
-" match BadWhitespace /\s\+$/
+" Remove trailing whitespace on writes
+autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Enable aggressive python highlighting
 let g:python_highlight_all=1
-
-" Turn on syntax highlighting
-syntax on
 
 " Show docstrings in Python folds
 let g:SimpylFold_docstring_preview=1

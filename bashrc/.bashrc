@@ -48,4 +48,3 @@ fi
 
 # load bashrc modules in .bashrc.d
 for file in ~/.bashrc.d/*; do . "$file"; done
-

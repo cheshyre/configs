@@ -49,6 +49,9 @@ Plug 'tpope/vim-fugitive'
 " Search plugin
 Plug 'ctrlpvim/ctrlp.vim'
 
+" Buffer close script
+Plug 'rbgrouleff/bclose.vim'
+
 " -- Python Plugins --
 " Python folding plugin
 Plug 'tmhedberg/SimpylFold'
@@ -72,11 +75,40 @@ Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
 
 call plug#end()
 
-" Load sensible settings before vimrc so settings can be overrideen below
+" Load sensible settings before vimrc so settings can be overridden below
 runtime! plugin/sensible.vim
 
 " Set leader
 let mapleader = ","
+
+" Standard clipboard shortcuts
+inoremap <C-v> <ESC>"+pa
+vnoremap <C-c> "+y
+
+" Remapping for splits in normal mode
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Useful setings in general
+set fileformat=unix
+set encoding=utf-8
+filetype plugin indent on
+
+" Set line numbers
+set number
+
+" Enable code folding
+set foldmethod=indent
+set foldlevel=99
+
+" Map folding to spacebar in normal mode
+nnoremap <space> za
+
+" Color scheme settings
+set background=dark
+colorscheme hybrid_reverse
 
 " Avoid shift for commands
 nnoremap ; :
@@ -109,17 +141,9 @@ autocmd! BufReadPost,BufWritePost * Neomake
 let g:neomake_serialize = 1
 let g:neomake_serialize_abort_on_error = 1
 
-function! MyOnBattery()
-  return readfile('/sys/class/power_supply/AC/online') == ['0']
-endfunction
+call neomake#configure#automake('w')
 
-" Battery saving settings for neomake
-if MyOnBattery()
-  call neomake#configure#automake('w')
-else
-  call neomake#configure#automake('nw', 1000)
-endif
-
+" vimtex settings
 " Start neovim remote for compilation
 let g:vimtex_compiler_progname = 'nvr'
 
@@ -132,19 +156,20 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-" Nerdtree settings for appearance on open
+" Nerdtree settings
+" appear on open
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-" Nerdtree toggle keybind
+" toggle keybind
 nnoremap <leader>f :NERDTreeToggle<CR>
 nnoremap <leader>m :NERDTreeClose<cr>:NERDTreeFind<CR>
 
-" Nerdtree autoclose after last buffer is closed
+" autoclose after last buffer is closed
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Nerdtree git markers
+" git markers
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "x",
     \ "Staged"    : "+",
@@ -161,34 +186,8 @@ let g:NERDTreeIndicatorMapCustom = {
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
-" Standard keyboard shortcuts
-inoremap <C-v> <ESC>"+pa
-vnoremap <C-c> "+y
-
-" Remapping for splits in normal mode
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-" Useful setings in general
-set fileformat=unix
-set encoding=utf-8
-filetype plugin indent on
-
-" Set line numbers
-set number
-
-" Enable code folding
-set foldmethod=indent
-set foldlevel=99
-
-" Map folding to spacebar in normal mode
-nnoremap <space> za
-
-" Color scheme settings
-set background=dark
-colorscheme hybrid_reverse
+" hide files not relevant for development
+let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 
 " Powerline theme
 let g:airline_theme='term'
