@@ -15,7 +15,8 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible'
 
 " Color scheme
-Plug 'kristijanhusak/vim-hybrid-material'
+" Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'dylanaraps/wal.vim'
 
 " Powerline
 Plug 'vim-airline/vim-airline'
@@ -108,7 +109,8 @@ nnoremap <space> za
 
 " Color scheme settings
 set background=dark
-colorscheme hybrid_reverse
+" colorscheme hybrid_reverse
+colorscheme wal
 
 " Avoid shift for commands
 nnoremap ; :
@@ -197,8 +199,18 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
+if !exists("g:airline_symbols")
+  let g:airline_symbols={}
+endif
+let g:airline_symbols.linenr = ':: ln'
+let g:airline_symbols.maxlinenr = ''
+" let g:airline_section_z = airline#section#create(['%3p%%', 'linenr', 'maxlinenr', '%3v'])
+" let g:airline_section_z = '%3pp %l:%c'
 
 " YouCompleteMe settings
 let g:ycm_autoclose_preview_window_after_completion=1
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
+hi Normal guibg=NONE ctermbg=NONE
+
+let g:tex_flavor='latex'
