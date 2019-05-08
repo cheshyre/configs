@@ -1,0 +1,17 @@
+URxvt.scrollBar: false
+URxvt.saveLines: 20000
+URxvt.urgentOnBell: true
+URxvt.font: xft:Noto Sans Mono:size=11,xft:PowerlineSymbols:pixelsize=12,xft:Noto Sans Kannada:style=Regular:pixelsize=14,xft:Mona:style=Regular:pixelsize=14
+URxvt.scrollTtyKeypress: true
+URxvt.copyCommand: xclip -i -selection clipboard
+URxvt.letterSpace: 0
+URxvt.externalBorder: 0
+URxvt.internalBorder: 16
+URxvt.depth: 32
+
+
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgba
+Xft.hinting:    true
+Xft.hintstyle: hintslight

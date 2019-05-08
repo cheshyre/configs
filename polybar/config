@@ -1,4 +1,10 @@
 
+[colors]
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+out_of_focus = ${xrdb:color1:#222}
+urgent = ${xrdb:color6:#222}
+
 [bar/top]
 
 ;------------;
@@ -36,8 +42,8 @@ font-2 = Font Awesome 5 Brands:size=12;3
 ; COLORS ;
 ;--------;
 
-background = #1c1c1c
-foreground = #c5c8c6
+background = ${colors.background}
+foreground = ${colors.foreground}
 border-color = 0
 
 ;---------------;
@@ -67,9 +73,9 @@ pin-workspaces = true
 strip-wsnumbers = true
 enable-scroll = false
 
-label-unfocused-foreground = #707880
-label-focused-foreground = #c5c8c6
-label-urgent-foreground = #ff0000
+label-unfocused-foreground = ${colors.out_of_focus}
+label-focused-foreground = ${colors.foreground}
+label-urgent-foreground = ${colors.urgent}
 
 [module/time]
 type = internal/date
