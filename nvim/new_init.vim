@@ -1,11 +1,11 @@
 " =============== Plugin Initialization ===============
 " This loads all the plugins specified in ~/.vim/plugins.vim
-if filereadable(expand("~/.config/nvim/plugins.vim"))
-  source ~/.config/nvim/plugins.vim
+if filereadable(expand("~/.vim/plugins.vim"))
+  source ~/.vim/plugins.vim
 endif
 
 " Load sensible settings before rest
-runtime! plugin/sensible.vim
+runtume! plugin/sensible.vim
 
 " ================ General Settings ====================
 set fileformat=unix
@@ -34,13 +34,13 @@ set wildmenu                   " Turn on auto complete for commands in CLI
 let mapleader = ","
 
 " Avoid shift for commands
-nnoremap ; :
+nnoremap : ;
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
 " ================ Custom Settings ========================
 " This loads all the settings specified in ~/.vim/settings.vim
-if filereadable(expand("~/.config/nvim/settings.vim"))
-  source ~/.config/nvim/settings.vim
+if filereadable(expand("~/.vim/settings.vim"))
+  source ~/.vim/settings.vim
 endif

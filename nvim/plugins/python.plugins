@@ -1,0 +1,12 @@
+" Python folding plugin
+Plug 'tmhedberg/SimpylFold'
+
+" Highlighting for Python
+Plug 'vim-python/python-syntax'
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
+
+" PEP8 conforming indents
+Plug 'vim-scripts/indentpython.vim'
+
+" Black formatting tool
+Plug 'python/black'
