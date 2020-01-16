@@ -28,4 +28,7 @@ let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 
 " hide files not relevant for development
-let NERDTreeIgnore = ['\.pyc$', '__pycache__']
+let NERDTreeIgnore = [
+  \ '\.pyc$', 
+  \ '__pycache__'
+\ ]

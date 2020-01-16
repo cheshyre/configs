@@ -11,17 +11,17 @@ Plug 'tpope/vim-sensible'
 set rtp+=~/.config/nvim/plugins/
 
 " General plugins
-runtime interface.plugins
-runtime linting.plugins
-runtime autocomplete.plugins
-runtime git.plugins
-runtime search.plugins
-runtime buffer.plugins
-runtime text_manip.plugins
+runtime autocomplete.plugins.vim
+runtime buffer.plugins.vim
+runtime git.plugins.vim
+runtime interface.plugins.vim
+runtime linting.plugins.vim
+runtime search.plugins.vim
+runtime text_manip.plugins.vim
 
 " Language specific plugins
-runtime python.plugins
-runtime latex.plugins
-runtime markdown.plugins
+runtime latex.plugins.vim
+runtime markdown.plugins.vim
+runtime python.plugins.vim
 
 call plug#end()

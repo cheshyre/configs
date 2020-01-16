@@ -9,5 +9,5 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
 " Avoid escape
-inoremap jk <ESC>
-vnoremap jk <ESC>
+" inoremap jk <ESC>
+" vnoremap jk <ESC>
